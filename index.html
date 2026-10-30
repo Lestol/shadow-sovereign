@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Shadow Sovereign Guide</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Alegreya+Sans:wght@400;500;700&display=swap">
+<style>
+:root{--bg:#120e19;--panel:#1b1525;--line:#3a2e4c;--fg:#e9e2f2;--muted:#a99cba;--gold:#d8b36a;--violet:#b57dff;
+  --display:"Cinzel",Georgia,serif;--body:"Alegreya Sans","Segoe UI",system-ui,sans-serif;color-scheme:dark}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--body);font-size:16px;line-height:1.5;padding:0 16px 48px}
+.wrap{max-width:900px;margin:0 auto}
+header{padding:48px 0 24px;border-bottom:1px solid var(--line);display:grid;gap:8px}
+.eyebrow{font-family:var(--display);color:var(--gold);letter-spacing:.18em;text-transform:uppercase;font-size:12px}
+h1{font-family:var(--display);font-size:clamp(30px,6vw,48px);line-height:1.1;margin:0;letter-spacing:.04em}
+.lede{color:var(--muted);margin:0;max-width:60ch}
+.lang{display:flex;gap:6px;margin-top:8px}
+button.chip{font:inherit;font-size:14px;color:var(--muted);background:var(--panel);border:1px solid var(--line);border-radius:999px;padding:5px 12px;cursor:pointer}
+button.chip[aria-pressed="true"]{color:var(--bg);background:var(--gold);border-color:var(--gold);font-weight:700}
+button.chip:focus-visible,a.card:focus-visible{outline:2px solid var(--violet);outline-offset:2px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,260px),1fr));gap:14px;padding-top:28px}
+a.card{display:grid;gap:6px;text-decoration:none;color:inherit;background:var(--panel);border:1px solid var(--line);border-radius:6px;padding:18px}
+a.card:hover{border-color:var(--gold)}
+a.card h2{margin:0;font-family:var(--display);font-size:19px;color:var(--gold);letter-spacing:.04em}
+a.card p{margin:0;color:var(--muted);font-size:15px}
+footer{margin-top:40px;color:var(--muted);font-size:13px;border-top:1px solid var(--line);padding-top:14px}
+footer a{color:var(--gold)}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <div class="eyebrow" id="eyebrow"></div>
+  <h1 id="h1"></h1>
+  <p class="lede" id="lede"></p>
+  <div class="lang" id="lang"></div>
+</header>
+<main class="grid" id="list"></main>
+<footer id="foot"></footer>
+</div>
+<script>
+const PAGES=[
+  {href:"skills.html",en:["Skills","All class skills: costs, cooldowns and when the books go on sale."],ru:["Навыки","Все навыки класса: стоимость, перезарядка и с какого уровня продаются книги."]},
+  {href:"items.html",en:["Items and sets","Class gear from the merchants and the set bonuses."],ru:["Предметы и комплекты","Снаряжение класса у торговцев и бонусы комплектов."]},
+  {href:"bestiary.html",en:["Bestiary","Every kind of shadow, how to get it and what its ranks give."],ru:["Бестиарий","Все виды теней: как получить и что дают ранги."]}
+];
+const T={en:{eyebrow:"Divinity: Original Sin 2 Definitive Edition",h1:"Shadow Sovereign",lede:"A player guide for the summoner class mod. Bind shadows from the fallen and lead them into battle.",
+  foot:'The mod is on <a href="https://www.nexusmods.com/divinityoriginalsin2definitiveedition/mods/">Nexus Mods</a>. Author: DaeronAira.'},
+  ru:{eyebrow:"Divinity: Original Sin 2 Definitive Edition",h1:"Повелитель Теней",lede:"Справочник для игроков мода-класса призывателя. Пленяйте тени павших и ведите их в бой.",
+  foot:'Мод на <a href="https://www.nexusmods.com/divinityoriginalsin2definitiveedition/mods/">Nexus Mods</a>. Автор: DaeronAira.'}};
+let lang="en";
+try{const s=localStorage.getItem("ss_lang");if(s==="ru"||s==="en")lang=s}catch(e){}
+const $=id=>document.getElementById(id);
+function chip(l){const b=document.createElement("button");b.className="chip";b.type="button";b.textContent=l.toUpperCase();b.setAttribute("aria-pressed",lang===l);b.onclick=()=>{lang=l;try{localStorage.setItem("ss_lang",l)}catch(e){}render()};return b}
+function render(){
+  const t=T[lang];document.documentElement.lang=lang;
+  $("eyebrow").textContent=t.eyebrow;$("h1").textContent=t.h1;$("lede").textContent=t.lede;$("foot").innerHTML=t.foot;
+  $("lang").replaceChildren(chip("en"),chip("ru"));
+  $("list").innerHTML=PAGES.map(p=>`<a class="card" href="${p.href}"><h2>${p[lang][0]}</h2><p>${p[lang][1]}</p></a>`).join("");
+}
+render();
+</script>
+</body>
+</html>
