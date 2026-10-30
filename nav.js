@@ -15,7 +15,7 @@
   .ssnav a{color:#a99cba;text-decoration:none;padding:4px 0;border-bottom:2px solid transparent}
   .ssnav a:hover{color:#e9e2f2}
   .ssnav a[aria-current="page"]{color:#d8b36a;border-bottom-color:#d8b36a}
-  .ssnav a.home{color:#e9e2f2;font-family:"Cinzel","Forum",Georgia,serif;font-weight:700;margin-right:auto}
+  .ssnav a.home{color:#e9e2f2;font-family:"Cinzel","Cormorant SC",Georgia,serif;font-weight:700;margin-right:auto}
   .ssnav a:focus-visible{outline:2px solid #b57dff;outline-offset:2px}
   @media (max-width:480px){.ssnav a.home{flex-basis:100%}}`;
   document.head.appendChild(css);
