@@ -4,14 +4,14 @@
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>Shadow Sovereign Skills</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Alegreya+Sans:ital,wght@0,400;0,500;0,700;1,400&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Forum&family=Alegreya+Sans:ital,wght@0,400;0,500;0,700;1,400&display=swap">
 <script src="nav.js" defer></script>
 <style>
 /* Layout: a grimoire index – sticky filter bar over a two-column ledger of skill entries, grouped by branch */
 :root{
   --bg:#120e19; --panel:#1b1525; --panel2:#231b30; --line:#3a2e4c;
   --fg:#e9e2f2; --muted:#a99cba; --gold:#d8b36a; --violet:#b57dff; --ult:#ff8f6b;
-  --display:"Cinzel",Georgia,"Times New Roman",serif;
+  --display:"Cinzel","Forum",Georgia,"Times New Roman",serif;
   --body:"Alegreya Sans","Segoe UI",system-ui,sans-serif;
   color-scheme:dark;
 }
@@ -56,6 +56,7 @@ article.skill.ult{border-color:color-mix(in srgb,var(--ult) 55%,var(--line));bac
 footer{margin-top:40px;color:var(--muted);font-size:13px;border-top:1px solid var(--line);padding-top:14px}
 @media (max-width:480px){article.skill{grid-template-columns:48px 1fr}.icon{width:48px;height:48px}}
 @media (prefers-reduced-motion:no-preference){article.skill{transition:border-color .15s}article.skill:hover{border-color:var(--gold)}}
+html[lang="ru"] :is(h1,h2,h3){font-synthesis:none}
 </style>
 <div class="wrap">
 <header class="hero">

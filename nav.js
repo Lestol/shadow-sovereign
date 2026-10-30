@@ -11,11 +11,11 @@
   const here = (location.pathname.split('/').pop() || 'index.html').toLowerCase();
   const css = document.createElement('style');
   css.textContent = `.ssnav{display:flex;flex-wrap:wrap;align-items:center;gap:4px 18px;padding:12px 0;border-bottom:1px solid #3a2e4c;
-    font-family:"Cinzel",Georgia,serif;font-size:14px;letter-spacing:.06em;max-width:1180px;margin:0 auto}
+    font-family:"Alegreya Sans","Segoe UI",system-ui,sans-serif;font-size:15px;font-weight:500;letter-spacing:.08em;max-width:1180px;margin:0 auto}
   .ssnav a{color:#a99cba;text-decoration:none;padding:4px 0;border-bottom:2px solid transparent}
   .ssnav a:hover{color:#e9e2f2}
   .ssnav a[aria-current="page"]{color:#d8b36a;border-bottom-color:#d8b36a}
-  .ssnav a.home{color:#e9e2f2;font-weight:700;margin-right:auto}
+  .ssnav a.home{color:#e9e2f2;font-family:"Cinzel","Forum",Georgia,serif;font-weight:700;margin-right:auto}
   .ssnav a:focus-visible{outline:2px solid #b57dff;outline-offset:2px}
   @media (max-width:480px){.ssnav a.home{flex-basis:100%}}`;
   document.head.appendChild(css);

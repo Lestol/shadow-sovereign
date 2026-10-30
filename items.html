@@ -4,14 +4,14 @@
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>Shadow Sovereign Items</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Alegreya+Sans:ital,wght@0,400;0,500;0,700;1,400&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Forum&family=Alegreya+Sans:ital,wght@0,400;0,500;0,700;1,400&display=swap">
 <script src="nav.js" defer></script>
 <style>
 /* Layout: a quartermaster's ledger – tabs (gear / sets / books), filter bar, gear grouped by the level its tier opens */
 :root{
   --bg:#120e19; --panel:#1b1525; --panel2:#231b30; --line:#3a2e4c;
   --fg:#e9e2f2; --muted:#a99cba; --gold:#d8b36a; --violet:#b57dff; --leg:#ff9f45; --quest:#7fd1b9;
-  --display:"Cinzel",Georgia,"Times New Roman",serif;
+  --display:"Cinzel","Forum",Georgia,"Times New Roman",serif;
   --body:"Alegreya Sans","Segoe UI",system-ui,sans-serif;
   color-scheme:dark;
 }
@@ -30,7 +30,7 @@ h1{font-family:var(--display);font-weight:700;font-size:clamp(28px,5vw,46px);lin
 .chips{display:flex;flex-wrap:wrap;gap:6px}
 button.chip{font:inherit;font-size:14px;color:var(--muted);background:var(--panel);border:1px solid var(--line);border-radius:999px;padding:5px 12px;cursor:pointer}
 button.chip[aria-pressed="true"]{color:var(--bg);background:var(--gold);border-color:var(--gold);font-weight:700}
-button.chip.tab{font-family:var(--display);letter-spacing:.05em}
+button.chip.tab{font-weight:700;letter-spacing:.08em;text-transform:uppercase;font-size:13px}
 button.chip:focus-visible,input:focus-visible,a:focus-visible{outline:2px solid var(--violet);outline-offset:2px}
 .search{flex:1 1 200px;min-width:0;font:inherit;font-size:15px;color:var(--fg);background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:7px 12px}
 .lang{margin-left:auto}
@@ -80,6 +80,7 @@ footer p{margin:0}
 @media (max-width:640px){.bar{position:static}.lang{margin-left:0}}
 @media (max-width:480px){article.card{grid-template-columns:44px 1fr}article.card .icon{width:44px;height:44px}.icon svg{width:28px;height:28px}}
 @media (prefers-reduced-motion:no-preference){article.card,.setcard{transition:border-color .15s}article.card:hover,.setcard:hover{border-color:var(--gold)}}
+html[lang="ru"] :is(h1,h2,h3){font-synthesis:none}
 </style>
 <body>
 <div class="wrap">
